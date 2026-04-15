@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWJ Retail Platform — CEO Briefing, April 14, 2026</title>
+<style>
+  :root {
+    --navy: #002060;
+    --gold: #b8a576;
+    --amber: #f2b84b;
+    --amber-bg: #fff6e0;
+    --red: #c0392b;
+    --green: #2e8b57;
+    --text: #1a1a1a;
+    --text-muted: #555;
+    --border: #d0d7e4;
+    --bg: #f7f8fa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    background: white;
+    min-height: 100vh;
+    box-shadow: 0 0 40px rgba(0,0,0,0.08);
+  }
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 24px 22px 22px;
+    border-bottom: 3px solid var(--gold);
+  }
+  header .eyebrow {
+    font-family: Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  header h1 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  header .date {
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    font-style: italic;
+  }
+  .title-block {
+    padding: 28px 22px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .title-block h2 {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .status-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--amber-bg);
+    border-left: 4px solid var(--amber);
+    padding: 12px 14px;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  .status-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+  .status-text {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 14px;
+  }
+  h3.section-title {
+    font-family: Georgia, serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+  }
+  section { padding: 22px; border-bottom: 1px solid var(--border); }
+  ul.bullets { list-style: none; }
+  ul.bullets li {
+    padding: 10px 0 10px 22px;
+    position: relative;
+    font-size: 15px;
+    border-bottom: 1px dashed #eee;
+  }
+  ul.bullets li:last-child { border-bottom: none; }
+  ul.bullets li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 18px;
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .risk-section { background: #fdf5f4; border-left: 4px solid var(--red); }
+  .risk-section ul.bullets li::before { background: var(--red); }
+  .recommendation {
+    background: linear-gradient(135deg, var(--amber-bg), #fffaef);
+    border: 2px solid var(--amber);
+    padding: 20px 22px;
+    margin: 22px;
+    border-radius: 6px;
+  }
+  .recommendation .label {
+    font-family: Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .recommendation .decisions { list-style: none; }
+  .recommendation .decisions li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    font-size: 15px;
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(184, 165, 118, 0.3);
+  }
+  .recommendation .decisions li:last-child { border-bottom: none; }
+  .recommendation .decisions li::before {
+    content: "\2192";
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    color: var(--navy);
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .recommendation .decisions li strong { color: var(--navy); }
+  .accordion { border-top: 1px solid var(--border); }
+  details { border-bottom: 1px solid var(--border); }
+  summary {
+    padding: 16px 22px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    user-select: none;
+    transition: background 0.15s ease;
+  }
+  summary:hover { background: var(--bg); }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    color: var(--gold);
+    font-size: 22px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+  }
+  details[open] summary::after { content: "\2212"; }
+  details[open] summary { background: var(--bg); border-bottom: 1px solid var(--border); }
+  .accordion-body {
+    padding: 16px 22px 20px;
+    background: var(--bg);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .accordion-body p { margin-bottom: 10px; }
+  .accordion-body p:last-child { margin-bottom: 0; }
+  .accordion-body strong { color: var(--navy); }
+  .metric-row {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0 14px;
+    flex-wrap: wrap;
+  }
+  .metric-pill {
+    flex: 1;
+    min-width: 120px;
+    background: white;
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    border-radius: 4px;
+  }
+  .metric-pill .label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .metric-pill .value {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--navy);
+    font-family: Georgia, serif;
+  }
+  .metric-pill .delta { font-size: 11px; margin-top: 2px; }
+  .delta.up { color: var(--green); font-weight: 600; }
+  .delta.down { color: var(--red); font-weight: 600; }
+  .delta.flat { color: var(--text-muted); }
+  footer {
+    padding: 22px;
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    font-size: 12px;
+  }
+  footer .gold-rule {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 0 auto 14px;
+  }
+  footer p { color: rgba(255,255,255,0.85); margin-bottom: 4px; }
+  footer .contact { color: var(--gold); margin-top: 10px; }
+  @media (max-width: 480px) {
+    header { padding: 20px 18px 18px; }
+    .title-block { padding: 22px 18px 16px; }
+    .title-block h2 { font-size: 22px; }
+    section { padding: 20px 18px; }
+    .recommendation { margin: 18px; padding: 18px; }
+    summary, .accordion-body { padding-left: 18px; padding-right: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="eyebrow">AWJ Retail Platform</div>
+    <h1>Portfolio Execution Brief</h1>
+    <div class="date">Week of April 14, 2026 &nbsp;|&nbsp; For CEO review</div>
+  </header>
+
+  <div class="title-block">
+    <h2>Portfolio moved from Red to Amber this week</h2>
+    <div class="status-badge">
+      <div class="status-dot"></div>
+      <div class="status-text">AMBER &nbsp;|&nbsp; Collections recovered, Audit closed, Entertainment needs attention</div>
+    </div>
+  </div>
+
+  <section>
+    <h3 class="section-title">Situation</h3>
+    <ul class="bullets">
+      <li>Collections recovered <strong>SAR 19.2M</strong> in a single week. YTD gap halved from SAR 45M to SAR 26M. 28 new Ejar contract conversions.</li>
+      <li>RED Malls Audit <strong>100% complete</strong>. All 7 departments closed including Finance. Ahead of June 30 target.</li>
+      <li>Dhahran Renovation mobilizing: overall actual +3pp to 20%. Phase 3 up +11pp in a week. Phase 4 still fully blocked.</li>
+    </ul>
+  </section>
+
+  <section class="risk-section">
+    <h3 class="section-title">Financial &amp; Execution Impact</h3>
+    <ul class="bullets">
+      <li>Collections 2026 full-year target <strong>SAR 217M</strong>. Achievement moved 12% to 21%. Still materially below run-rate needed.</li>
+      <li>AFG International receivable <strong>SAR 2.97M</strong> unsecured; 91% aged 120+ days. No movement this week.</li>
+      <li>SOUQ 7 Entertainment Ground Control variance <strong>widened 4.8pp</strong> (21.6% to 26.4%). Recovery plan not yet effective.</li>
+    </ul>
+  </section>
+
+  <div class="recommendation">
+    <div class="label">Decisions Required</div>
+    <ul class="decisions">
+      <li><strong>Approve AFG promissory note route this week.</strong> Only collection line not moving.</li>
+      <li><strong>Endorse Dhahran recovery plan by April 20.</strong> Phase 4 mobilization now the highest priority.</li>
+      <li><strong>Commercial intervention on Ground Control.</strong> Variance widening against plan.</li>
+    </ul>
+  </div>
+
+  <div class="accordion">
+
+    <details>
+      <summary>Collections and Ejar recovery</summary>
+      <div class="accordion-body">
+        <div class="metric-row">
+          <div class="metric-pill">
+            <div class="label">YTD Actual</div>
+            <div class="value">SAR 44.8M</div>
+            <div class="delta up">+SAR 19.2M WoW</div>
+          </div>
+          <div class="metric-pill">
+            <div class="label">YTD Gap</div>
+            <div class="value">SAR 25.9M</div>
+            <div class="delta up">halved WoW</div>
+          </div>
+          <div class="metric-pill">
+            <div class="label">Ejar Contracts</div>
+            <div class="value">139 of 324</div>
+            <div class="delta up">+28 WoW</div>
+          </div>
+        </div>
+        <p>March collection hit <strong>196% of target</strong>, driving the step-change. YTD vs target moved from 36% to 63%.</p>
+        <p>Full-year 2026 target SAR 217M; achievement at 21% against calendar 28%. Pace needs to sustain, not initiate.</p>
+        <p><strong>AFG International</strong> remains the outlier at SAR 2.97M, 91% aged 120+ days. Promissory note or bank letter of guarantee approval needed this week from Majid.</p>
+        <p>Ejar conversion: 155 non-Ejar contracts remain. Leasing Admin (Ahmed Soliman) driving weekly conversion rhythm.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Dhahran Mall Renovation (Tajdeed)</summary>
+      <div class="accordion-body">
+        <div class="metric-row">
+          <div class="metric-pill">
+            <div class="label">Overall Actual</div>
+            <div class="value">19.9%</div>
+            <div class="delta up">+3pp WoW</div>
+          </div>
+          <div class="metric-pill">
+            <div class="label">Variance</div>
+            <div class="value">27.2%</div>
+            <div class="delta up">narrowing</div>
+          </div>
+          <div class="metric-pill">
+            <div class="label">Days Left</div>
+            <div class="value">140</div>
+            <div class="delta flat">to Aug 31</div>
+          </div>
+        </div>
+        <p><strong>Phase 1:</strong> 74% actual, +5.5pp WoW. Lobby Gate 1 finishes progressing.</p>
+        <p><strong>Phase 2:</strong> 49% actual, +4.3pp WoW. Lobby Gate 3 and Facade still behind.</p>
+        <p><strong>Phase 3:</strong> 16% actual, +11.3pp WoW. Strongest movement in the portfolio. Gate 7 Prayer room mobilizing.</p>
+        <p><strong>Phase 4:</strong> 0% actual, flat for a second week. All 4 milestones at 100% variance. <strong>Single highest recovery priority.</strong></p>
+        <p><strong>Phases 5 to 7:</strong> Not started. Dependent on Phase 1 to 4 recovery.</p>
+        <p>Business owner across all phases: Ayman Dweekat. Recovery plan to Ayman AlBurti by April 20 now shifts from initiation to sustaining momentum.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>SOUQ 7 fit-out and close-out</summary>
+      <div class="accordion-body">
+        <p><strong>Apparel Fit-Out:</strong> Tenant Fit-Out Index at 56% (+2pp WoW). 7 of 13 tenants still delayed; no status flips. 29 days overdue against March 19 target. Haitham Khashoggi to issue tenant-by-tenant recovery dates.</p>
+        <p><strong>Entertainment Fit-Out:</strong> Status moved to RED. Ground Control variance widened 21.6% to 26.4% (+4.8pp). Miraculous roughly flat at 15%. Recommendation: Majid Algothmi commercial intervention this week. Consider lease remedies if variance widens again.</p>
+        <p><strong>Projects Close-Out:</strong> Stalled at 99.5% for a second week. Meter room (98%) and Punch list (99%) not closed. Trivial items that should have completed by now. Escalate to Hamza.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>RED Malls Audit &mdash; closed</summary>
+      <div class="accordion-body">
+        <div class="metric-row">
+          <div class="metric-pill">
+            <div class="label">Completion</div>
+            <div class="value">100%</div>
+            <div class="delta up">+2.3pp WoW</div>
+          </div>
+          <div class="metric-pill">
+            <div class="label">Departments</div>
+            <div class="value">7 of 7</div>
+            <div class="delta up">Finance closed</div>
+          </div>
+        </div>
+        <p>All 7 departments complete: General Points, Mall Management, Procurement, Commercial, Marketing, HR, and Finance.</p>
+        <p>Finance closed out this week, the last remaining department. Formal sign-off with CFO Talal Elhefnawy is the only remaining step.</p>
+        <p>77 days to the June 30 target; substantially ahead of plan.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Reporting cadence and data sources</summary>
+      <div class="accordion-body">
+        <p>This brief draws from six weekly tracking files maintained by Enterprise PMO (Hassan Daghistani): Dhahran Renovation masterplan, Apparel and Entertainment fit-out programs, Projects and Audit close-out files, and Dhahran Collections sheet. Collections figures reconcile to AWJ Dashboard Source v7F.</p>
+        <p>Tier 1 report (12 slides, full executive detail) available for the Transformation Committee. Tier 3 source Excel files available on request.</p>
+        <p>Next refresh: April 21, 2026.</p>
+      </div>
+    </details>
+
+  </div>
+
+  <footer>
+    <div class="gold-rule"></div>
+    <p>Prepared by Stewart Kirkham</p>
+    <p>CEO Advisor, AWJ Retail Platform</p>
+    <p class="contact">April 14, 2026</p>
+  </footer>
+
+</div>
+</body>
+</html>
