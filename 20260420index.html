@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWJ Retail Platform — CEO Briefing, April 21, 2026</title>
+<style>
+  :root {
+    --navy: #002060;
+    --gold: #b8a576;
+    --amber: #f2b44b;
+    --amber-bg: #fff6e0;
+    --red: #c0392b;
+    --green: #2e8b57;
+    --text: #1a1a1a;
+    --text-muted: #555;
+    --border: #d0d7e4;
+    --bg: #f7f8fa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 640px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 40px rgba(0,0,0,0.08); }
+  header { background: var(--navy); color: white; padding: 24px 22px 22px; border-bottom: 3px solid var(--gold); }
+  header .eyebrow { font-family: Georgia, serif; font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 4px; }
+  header h1 { font-family: Georgia, serif; font-size: 22px; font-weight: bold; letter-spacing: 1px; margin-bottom: 6px; }
+  header .date { font-size: 12px; color: rgba(255,255,255,0.75); font-style: italic; }
+  .title-block { padding: 28px 22px 18px; border-bottom: 1px solid var(--border); }
+  .title-block h2 { font-family: Georgia, serif; font-size: 26px; font-weight: bold; color: var(--navy); line-height: 1.2; margin-bottom: 14px; }
+  .status-badge { display: flex; align-items: center; gap: 12px; background: var(--amber-bg); border-left: 4px solid var(--amber); padding: 12px 14px; border-radius: 4px; margin-top: 10px; }
+  .status-dot { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; }
+  .status-dot.amber { background: var(--amber); }
+  .status-text { font-weight: 600; color: var(--navy); font-size: 14px; }
+  h3.section-title { font-family: Georgia, serif; font-size: 13px; font-weight: bold; color: var(--navy); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid var(--gold); display: inline-block; }
+  section { padding: 22px; border-bottom: 1px solid var(--border); }
+  ul.bullets { list-style: none; }
+  ul.bullets li { padding: 10px 0 10px 22px; position: relative; font-size: 15px; border-bottom: 1px dashed #eee; }
+  ul.bullets li:last-child { border-bottom: none; }
+  ul.bullets li::before { content: ""; position: absolute; left: 2px; top: 18px; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; }
+  .risk-section { background: #fdf5f4; border-left: 4px solid var(--red); }
+  .risk-section ul.bullets li::before { background: var(--red); }
+  .recommendation { background: linear-gradient(135deg, var(--amber-bg), #fffaef); border: 2px solid var(--amber); padding: 20px 22px; margin: 22px; border-radius: 6px; }
+  .recommendation .label { font-family: Georgia, serif; font-size: 11px; letter-spacing: 2px; color: var(--navy); text-transform: uppercase; margin-bottom: 10px; font-weight: bold; }
+  .recommendation .decisions { list-style: none; }
+  .recommendation .decisions li { padding: 8px 0 8px 28px; position: relative; font-size: 15px; line-height: 1.5; border-bottom: 1px solid rgba(184, 165, 118, 0.3); }
+  .recommendation .decisions li:last-child { border-bottom: none; }
+  .recommendation .decisions li::before { content: "\2192"; position: absolute; left: 4px; top: 8px; color: var(--navy); font-weight: bold; font-size: 16px; }
+  .recommendation .decisions li strong { color: var(--navy); }
+  .accordion { border-top: 1px solid var(--border); }
+  details { border-bottom: 1px solid var(--border); }
+  summary { padding: 16px 22px; cursor: pointer; font-weight: 600; color: var(--navy); font-size: 15px; display: flex; justify-content: space-between; align-items: center; list-style: none; user-select: none; transition: background 0.15s ease; }
+  summary:hover { background: var(--bg); }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--gold); font-size: 22px; font-weight: bold; }
+  details[open] summary::after { content: "\2212"; }
+  details[open] summary { background: var(--bg); border-bottom: 1px solid var(--border); }
+  .accordion-body { padding: 16px 22px 20px; background: var(--bg); font-size: 14px; line-height: 1.6; }
+  .accordion-body p { margin-bottom: 10px; }
+  .accordion-body p:last-child { margin-bottom: 0; }
+  .accordion-body strong { color: var(--navy); }
+  .metric-row { display: flex; gap: 10px; margin: 10px 0 14px; flex-wrap: wrap; }
+  .metric-pill { flex: 1; min-width: 120px; background: white; border: 1px solid var(--border); padding: 10px 12px; border-radius: 4px; }
+  .metric-pill .label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+  .metric-pill .value { font-size: 18px; font-weight: bold; color: var(--navy); font-family: Georgia, serif; }
+  .metric-pill .delta { font-size: 11px; margin-top: 2px; }
+  .delta.up { color: var(--green); font-weight: 600; }
+  .delta.down { color: var(--red); font-weight: 600; }
+  .delta.flat { color: var(--text-muted); }
+  .delta.warn { color: var(--red); font-weight: 600; }
+  footer { padding: 22px; background: var(--navy); color: white; text-align: center; font-size: 12px; }
+  footer .gold-rule { width: 60px; height: 2px; background: var(--gold); margin: 0 auto 14px; }
+  footer p { color: rgba(255,255,255,0.85); margin-bottom: 4px; }
+  footer .contact { color: var(--gold); margin-top: 10px; }
+  @media (max-width: 480px) {
+    header { padding: 20px 18px 18px; }
+    .title-block { padding: 22px 18px 16px; }
+    .title-block h2 { font-size: 22px; }
+    section { padding: 20px 18px; }
+    .recommendation { margin: 18px; padding: 18px; }
+    summary, .accordion-body { padding-left: 18px; padding-right: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="eyebrow">AWJ Retail Platform</div>
+    <h1>Portfolio Execution Brief</h1>
+    <div class="date">Week of April 21, 2026 &nbsp;|&nbsp; Week 3 &nbsp;|&nbsp; For CEO review</div>
+  </header>
+
+  <div class="title-block">
+    <h2>Mixed signals: Dhahran recovering, Entertainment deteriorating, Collections stalled</h2>
+    <div class="status-badge">
+      <div class="status-dot amber"></div>
+      <div class="status-text">AMBER &nbsp;|&nbsp; Entertainment now the portfolio's most critical stream</div>
+    </div>
+  </div>
+
+  <section>
+    <h3 class="section-title">Situation</h3>
+    <ul class="bullets">
+      <li>Entertainment fit-out: <strong>both tenants widening for 3 consecutive weeks</strong>. Ground Control at 30.5% variance. Recovery plans from Commercial Committee producing no on-site effect.</li>
+      <li>Dhahran Renovation: Phase 1 <strong>upgraded from Major Delay to Delay</strong>. Phase 3 accelerating at +12pp for a second week. Phase 4 frozen at 0% for three weeks.</li>
+      <li>Collections: <strong>SAR 44.8M YTD, flat WoW</strong>. The W2 surge (SAR 19.2M) was not sustained. No new Ejar conversions. Momentum at risk.</li>
+    </ul>
+  </section>
+
+  <section class="risk-section">
+    <h3 class="section-title">Financial &amp; Execution Risks</h3>
+    <ul class="bullets">
+      <li>Ground Control variance <strong>21.6% to 26.4% to 30.5%</strong> over 3 weeks. At current trajectory, June 24 handover is unachievable. SOUQ 7 opening narrative at risk.</li>
+      <li>AFG International receivable <strong>SAR 2.97M unsecured for 3 weeks</strong>. Promissory note request has not been actioned. Leverage diminishes with age.</li>
+      <li>Collections gap static at <strong>SAR 25.9M</strong>. Full-year target SAR 217M; achievement at 21% against 30% calendar elapsed. Risk of reverting to pre-recovery trajectory.</li>
+    </ul>
+  </section>
+
+  <div class="recommendation">
+    <div class="label">Decisions Required</div>
+    <ul class="decisions">
+      <li><strong>Commercial intervention on Entertainment this week.</strong> Both tenants widening 3 weeks. Lease remedies on the table. Majid to act.</li>
+      <li><strong>Confirm Dhahran recovery plan delivered.</strong> Was due April 20. Phase 4 mobilization is the critical item.</li>
+      <li><strong>AFG promissory note: approve or accept.</strong> Outstanding 3 weeks. Escalate or acknowledge the SAR 2.97M exposure.</li>
+      <li><strong>Re-engage Collections rhythm.</strong> W2 surge was not sustained. Without action, gap widens again.</li>
+    </ul>
+  </div>
+
+  <div class="accordion">
+
+    <details>
+      <summary>Entertainment Fit-Out (critical)</summary>
+      <div class="accordion-body">
+        <div class="metric-row">
+          <div class="metric-pill">
+            <div class="label">Overall Variance</div>
+            <div class="value">16.1%</div>
+            <div class="delta down">+2.3pp WoW (widening)</div>
+          </div>
+          <div class="metric-pill">
+            <div class="label">Days Remaining</div>
+            <div class="value">65</div>
+            <div class="delta flat">to Jun 24 handover</div>
+          </div>
+        </div>
+        <p><strong>Ground Control:</strong> 30.5% variance. 3-week trend: 21.6% to 26.4% to 30.5%. MEP drawings Phase 3 still at 40%, MEP works Phase 4 at 25%. Consistent widening every week. Now in Major Delay territory by any measure.</p>
+        <p><strong>Miraculous:</strong> 17.8% variance. 3-week trend: 14.8% to 15.0% to 17.8%. Shifted from stable to deteriorating this week (+2.8pp).</p>
+        <p>Recovery plans discussed at Commercial Committee Meetings No. 4 and No. 5 have produced no measurable effect on site. At current trajectory, neither tenant will be ready for the June 24 handover.</p>
+        <p><strong>Recommendation:</strong> escalate immediately to Majid for commercial intervention with lease remedy options. This has been flagged for two consecutive weeks.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Dhahran Mall Renovation (Tajdeed)</summary>
+      <div class="accordion-body">
+        <div class="metric-row">
+          <div class="metric-pill">
+            <div class="label">Overall Actual</div>
+            <div class="value">22.3%</div>
+            <div class="delta up">+2.4pp WoW</div>
+          </div>
+          <div class="metric-pill">
+            <div class="label">Variance</div>
+            <div class="value">26.9%</div>
+            <div class="delta up">narrowing 3 weeks</div>
+          </div>
+          <div class="metric-pill">
+            <div class="label">Days Left</div>
+            <div class="value">133</div>
+            <div class="delta flat">to Aug 31</div>
+          </div>
+        </div>
+        <p><strong>Phase 1:</strong> 76% actual (+2pp). Status upgraded from Major Delay to Delay. First status upgrade in the portfolio.</p>
+        <p><strong>Phase 2:</strong> 53% actual (+4pp). Consistent pace. Facade and Lobby Gate 3 still behind.</p>
+        <p><strong>Phase 3:</strong> 28% actual (+12pp). Strongest movement for a second consecutive week. Facade Gate 3 to 4 now In Progress.</p>
+        <p><strong>Phase 4:</strong> 0% actual, frozen three weeks. All milestones at 0%. <strong>Single biggest risk to Aug 31 completion.</strong></p>
+        <p>Recovery plan was due from Ayman AlBurti on April 20. Status of delivery to be confirmed.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Collections and Ejar (stalled)</summary>
+      <div class="accordion-body">
+        <div class="metric-row">
+          <div class="metric-pill">
+            <div class="label">YTD Actual</div>
+            <div class="value">SAR 44.8M</div>
+            <div class="delta warn">flat WoW</div>
+          </div>
+          <div class="metric-pill">
+            <div class="label">YTD Gap</div>
+            <div class="value">SAR 25.9M</div>
+            <div class="delta warn">unchanged</div>
+          </div>
+          <div class="metric-pill">
+            <div class="label">Ejar Contracts</div>
+            <div class="value">139 of 324</div>
+            <div class="delta warn">flat; no conversions</div>
+          </div>
+        </div>
+        <p>The W2 collection surge (SAR 19.2M, 28 Ejar conversions) was not sustained. YTD actual, Ejar conversions, and AFG receivable all flat in W3.</p>
+        <p>The risk is that W2 was a one-time catch-up (clearing aged items in bulk) rather than a sustained rhythm shift. Without re-engagement this week, the gap begins to widen again as new invoicing outpaces collection.</p>
+        <p><strong>AFG International:</strong> SAR 2.97M, 91% aged 120+ days. Promissory note request outstanding for three weeks. No progress.</p>
+        <p>Full-year target SAR 217M; achievement at 21% against 30% calendar elapsed.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Apparel Fit-Out (accelerating)</summary>
+      <div class="accordion-body">
+        <div class="metric-row">
+          <div class="metric-pill">
+            <div class="label">Fit-Out Index</div>
+            <div class="value">60%</div>
+            <div class="delta up">+4pp WoW</div>
+          </div>
+          <div class="metric-pill">
+            <div class="label">3-Week Trend</div>
+            <div class="value">53 to 56 to 60</div>
+            <div class="delta up">accelerating</div>
+          </div>
+          <div class="metric-pill">
+            <div class="label">Days Overdue</div>
+            <div class="value">36</div>
+            <div class="delta warn">+7 per week</div>
+          </div>
+        </div>
+        <p>Pace picking up: +4pp this week vs +2pp last week. At +4pp/week the remaining 40% gap closes in 10 weeks. Feasible if pace sustains.</p>
+        <p>Three named critical tenants: <strong>Grand Centrale</strong> (0% actual, 100% variance), <strong>Off Price</strong> (25%), <strong>R&amp;B</strong> (5%). No tenant has flipped from Delayed to Completed in three weeks.</p>
+        <p>LD clause application from April 30 is the hard backstop.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Close-Out and Audit</summary>
+      <div class="accordion-body">
+        <p><strong>Projects Close-Out:</strong> Stalled at 99.5% for a third consecutive week. Meter room (98%) and Punch list (99%) unchanged since April 6. Escalation to Hamza flagged for two weeks with no result. Deadline: April 27 or reassign ownership.</p>
+        <p><strong>RED Malls Audit:</strong> Closed since Week 2. All 7 departments complete. Hassan removed it from his April 20 report. Formal sign-off with CFO Talal Elhefnawy pending. 71 days to June 30 target.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>3-week velocity tracker</summary>
+      <div class="accordion-body">
+        <p><strong>Dhahran actual:</strong> 16.9% to 19.9% to 22.3% (sustaining +2 to 3pp/week)</p>
+        <p><strong>Apparel Fit-Out Index:</strong> 53% to 56% to 60% (accelerating)</p>
+        <p><strong>Entertainment variance:</strong> 12.1% to 13.8% to 16.1% (widening every week)</p>
+        <p><strong>Ground Control variance:</strong> 21.6% to 26.4% to 30.5% (severe, consistent)</p>
+        <p><strong>Collections YTD:</strong> SAR 25.6M to SAR 44.8M to SAR 44.8M (surge then stall)</p>
+        <p><strong>Ejar contracts:</strong> 111 to 139 to 139 (surge then stall)</p>
+        <p><strong>Projects Close-Out:</strong> 99.5% to 99.5% to 99.5% (frozen)</p>
+        <p>Next refresh: April 28, 2026.</p>
+      </div>
+    </details>
+
+  </div>
+
+  <footer>
+    <div class="gold-rule"></div>
+    <p>Prepared by Stewart Kirkham</p>
+    <p>CEO Advisor, AWJ Retail Platform</p>
+    <p class="contact">April 21, 2026</p>
+  </footer>
+
+</div>
+</body>
+</html>
